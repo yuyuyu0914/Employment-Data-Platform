@@ -1,1 +1,3 @@
 checkoutToken();
+renderUname();
+logout();

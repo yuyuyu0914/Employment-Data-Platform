@@ -26,3 +26,26 @@ const checkoutToken = () => {
     },1500)
 }
 }
+
+//回显用户名
+const renderUname=()=>{
+    const {username} = JSON.parse(localStorage.getItem('userMsg'))
+    console.log(username)
+    if(username){
+        document.querySelector('.username').innerHTML=username
+    }
+}
+
+//退出登录
+const logout=()=>{
+    //清除本地缓存
+    document.querySelector('#logout').addEventListener('click',function(){
+    localStorage.removeItem('userMsg')
+    //提示用户
+    showToast('退出成功')
+    //跳转页面
+    setTimeout(()=>{
+        location.href='./login.html'
+    },1500)
+})
+}
