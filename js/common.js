@@ -10,6 +10,19 @@ const showToast = (msg) => {
     toastObj.show()
     //2.2让提示框组件内容改变
     document.querySelector('.toast-body').innerHTML=msg 
-
 }
 // showToast('成功1')
+
+//公共的token校验函数
+const checkoutToken = () => {
+    //1.获取本地缓存中的token
+    const {token} = JSON.parse(localStorage.getItem('userMsg'))
+    console.log(token)
+    //2.判断token是否存在
+    if (!token) {
+        showToast("请先登录")
+        setTimeout(() => {
+        location.href = './login.html'
+    },1500)
+}
+}
