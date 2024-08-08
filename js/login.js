@@ -24,11 +24,11 @@ document.querySelector('#btn-login').addEventListener('click', async function (e
         //发送请求并获取响应
         const res=await axios.post('/login',data)
         const obj={}
-        obj.username=res.data.data.username
-        obj.token=res.data.data.token
+        obj.username=res.data.username
+        obj.token=res.data.token
         //存储用户名信息到本地缓存
         localStorage.setItem('userMsg',JSON.stringify(obj))
-        showToast(res.data.message)
+        showToast(res.message)
         //跳转页面
         setTimeout(function(){
             location.href='./index.html'
