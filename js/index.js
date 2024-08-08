@@ -15,26 +15,13 @@ const getData=async ()=>{
     // const data=localStorage.getItem('userMsg')?JSON.parse(localStorage.getItem('userMsg')):{}
     // const {token}=data
     // 使用axios发送GET请求到'/dashboard'，并在请求头中添加token
-    try{
         const res=await axios({
             url:'/dashboard',
             method:'GET',
-            // headers:{
-            //     Authorization:token
-            // }
         })
         console.log(res)
         renderOverview(res.data.overview)
-    }catch(err){
-    //     console.log(err)
-    //  if(err.response.status===401){
-    //     showToast('您的登录信息已过期，请重新登录')
-    //     localStorage.removeItem('userMsg')
-    //     setTimeout(()=>{
-    //       location.href='./login.html'
-    // },1500)
-    //  }
-}
+
 }
 getData()
 
